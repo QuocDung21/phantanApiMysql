@@ -22,7 +22,9 @@ connection.connect((err) => {
 // Middleware để phân tích nội dung của yêu cầu HTTP
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
+app.get("/", (req, res) => {
+  res.json("Api listening");
+});
 // Thêm một bài viết
 app.post("/api/blog", (req, res) => {
   const { id, title, description, idcateblog, author, images } = req.body;
